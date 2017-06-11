@@ -15,6 +15,7 @@ export class Hero {
       <label>name: </label>
       <input [(ngModel)]="hero.name" placeholder="name">
     </div>
+    <material-table></material-table>
     `
 })
 export class AppComponent {
