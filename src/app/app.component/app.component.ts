@@ -9,17 +9,11 @@ export class Hero {
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <h2>{{hero.name}} details!</h2>
-    <div><label>id: </label>{{hero.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="hero.name" placeholder="name">
-    </div>
-    <material-table></material-table>
+    <router-outlet></router-outlet>
     `
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = '艦これ資材データ一覧';
   hero: Hero = {
     id: 1,
     name: 'Windstorm'

@@ -7,27 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var Hero = (function () {
-    function Hero() {
+var MaterialTableService = (function () {
+    function MaterialTableService() {
     }
-    return Hero;
+    return MaterialTableService;
 }());
-exports.Hero = Hero;
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = '艦これ資材データ一覧';
-        this.hero = {
-            id: 1,
-            name: 'Windstorm'
-        };
-    }
-    return AppComponent;
-}());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: "\n    <h1>{{title}}</h1>\n    <router-outlet></router-outlet>\n    "
-    })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+MaterialTableService = __decorate([
+    core_1.Injectable()
+], MaterialTableService);
+exports.MaterialTableService = MaterialTableService;
+//# sourceMappingURL=material-table.service.js.map

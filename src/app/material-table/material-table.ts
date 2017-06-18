@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 /**
   * 資材描画テーブルクラス
   */
-export class MaterialTableComponent{
+export class MaterialTableComponent {
 
 }
