@@ -13,6 +13,7 @@ var http_1 = require("@angular/http");
 var app_routing_module_1 = require("../app-routing.module/app-routing.module");
 var app_component_1 = require("../app.component/app.component");
 var material_table_1 = require("../material-table/material-table");
+var material_table_service_1 = require("../material-table.service/material-table.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -30,7 +31,7 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             material_table_1.MaterialTableComponent
         ],
-        // providers: [ MaterialTableService ],
+        providers: [material_table_service_1.MaterialTableService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

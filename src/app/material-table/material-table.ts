@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Material }             from '../materia/material';
+import { MaterialTableService } from '../material-table.service/material-table.service';
 
 @Component({
   selector: 'material-table',
@@ -8,6 +11,17 @@ import { Component } from '@angular/core';
 /**
   * 資材描画テーブルクラス
   */
-export class MaterialTableComponent {
+export class MaterialTableComponent implements OnInit {
+  materials: Material[] = [];
+
+  constructor(private mService: MaterialTableService) { }
+
+  ngOnInit(): void {
+    this.getMaterial();
+  }
+
+  getMaterial(): void {
+    this.mService.getMaterial().then(materials => this.materials = materials);
+  }
 
 }

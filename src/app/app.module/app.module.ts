@@ -22,7 +22,7 @@ import { MaterialTableService }   from '../material-table.service/material-table
     AppComponent,
     MaterialTableComponent
   ],
-  // providers: [ MaterialTableService ],
+  providers: [ MaterialTableService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
