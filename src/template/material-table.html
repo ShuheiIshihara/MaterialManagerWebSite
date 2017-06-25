@@ -10,13 +10,13 @@
     <th>改修資材</th>
   </tr>
   <tr *ngFor="let m of materials">
-    <td>1</td>
-    <td>m.fuel</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
+    <td>{{m.date | date : 'dd'}}</td>
+    <td>{{m.fuel}}</td>
+    <td>{{m.ammunition}}</td>
+    <td>{{m.steel}}</td>
+    <td>{{m.bauxite}}</td>
+    <td>{{m.bucket}}</td>
+    <td>{{m.dMaterial}}</td>
+    <td>{{m.screw}}</td>
   </tr>
 </table>
