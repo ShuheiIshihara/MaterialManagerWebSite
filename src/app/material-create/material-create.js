@@ -16,6 +16,7 @@ var MaterialCreateComponent = (function () {
         this.mService = mService;
     }
     MaterialCreateComponent.prototype.ngOnInit = function () {
+        this.today = new Date();
     };
     MaterialCreateComponent.prototype.goBack = function () {
         this.location.back();

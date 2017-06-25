@@ -13,11 +13,12 @@ import { MaterialTableService } from '../material-table.service/material-table.s
  *  資材追加画面
  */
 export class MaterialCreateComponent implements OnInit{
+  today: Date;
 
   constructor(private mService: MaterialTableService) { }
 
-  ngOnInit(): void{
-
+  ngOnInit(): void {
+    this.today = new Date();
   }
 
   goBack(): void{
