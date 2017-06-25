@@ -15,11 +15,26 @@ var MaterialCreateComponent = (function () {
     function MaterialCreateComponent(mService) {
         this.mService = mService;
     }
+    /**
+     *  初期読み込み
+     */
     MaterialCreateComponent.prototype.ngOnInit = function () {
-        this.today = new Date();
+        this.date = new Date();
     };
+    /**
+     *  戻る
+     */
     MaterialCreateComponent.prototype.goBack = function () {
         this.location.back();
+    };
+    /**
+     *  登録
+     */
+    MaterialCreateComponent.prototype.register = function () {
+        console.log(this.material);
+        console.log(this.rank);
+        console.log(this.point);
+        console.log(this.date);
     };
     return MaterialCreateComponent;
 }());
