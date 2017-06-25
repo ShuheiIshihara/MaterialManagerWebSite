@@ -10,7 +10,7 @@ export class Hero {
   template: `
     <div class="kancolle">
       <div class="mTitle">{{title}}</div>
-      <div class="mButton"><button class="btn btn-success">追加</button></div>
+      <div class="mButton"><button class="btn btn-success" [routerLink]="['/material/create']">追加</button></div>
     </div>
 
     <router-outlet></router-outlet>
