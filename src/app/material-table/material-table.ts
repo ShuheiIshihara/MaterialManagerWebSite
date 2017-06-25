@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Material }             from '../materia/material';
+import { Material }             from '../material/material';
 import { MaterialTableService } from '../material-table.service/material-table.service';
 
 @Component({

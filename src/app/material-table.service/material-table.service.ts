@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Material } '../material/material';
+import { Material } from '../material/material';
 
 @Injectable()
 export class MaterialTableService {
