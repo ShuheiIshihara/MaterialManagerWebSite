@@ -2,3 +2,18 @@
 * {
   font-family: Meiryo;
 }
+
+.kancolle{
+  display: flex;
+  margin: 1% auto;
+}
+
+.mTitle{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.mButton{
+  display:inline-flex;
+  margin: 0 1%;
+}

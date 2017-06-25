@@ -8,7 +8,11 @@ export class Hero {
 @Component({
   selector: 'my-app',
   template: `
-    <h1>{{title}}</h1>
+    <div class="kancolle">
+      <div class="mTitle">{{title}}</div>
+      <div class="mButton"><button class="btn btn-success">追加</button></div>
+    </div>
+
     <router-outlet></router-outlet>
     `
 })
