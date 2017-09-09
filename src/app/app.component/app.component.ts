@@ -11,6 +11,7 @@ export class Hero {
     <div class="kancolle">
       <div class="mTitle">{{title}}</div>
       <div class="mButton"><button class="btn btn-success" [routerLink]="['/material/create']">追加</button></div>
+      <div class="mButton"><button class="btn btn-primary" [routerLink]="['/material']">一覧</button></div>
     </div>
 
     <router-outlet></router-outlet>
@@ -18,8 +19,4 @@ export class Hero {
 })
 export class AppComponent {
   title = '艦これ資材データ一覧';
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
 }
