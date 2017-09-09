@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var common_1 = require("@angular/common");
 require("rxjs/add/operator/toPromise");
 var MaterialTableService = (function () {
-    function MaterialTableService(http) {
+    function MaterialTableService(http, location) {
         this.http = http;
+        this.location = location;
         // 接続URL
         this.baseUrl = 'http://localhost:8080/api/material';
     }
@@ -25,6 +27,46 @@ var MaterialTableService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    /*
+     *  データ登録
+     */
+    MaterialTableService.prototype.registerMaterial = function (data) {
+        var _this = this;
+        var postData = {
+            'level': data.level,
+            "fuel": data.fuel,
+            'ammunition': data.ammunition,
+            'steel': data.steel,
+            'bauxite': data.bauxite,
+            'bucket': data.bucket,
+            'banner': data.banner,
+            'dMaterial': data.dMaterial,
+            'screw': data.screw,
+            'winning_sortie': data.stWin,
+            'defeatting_sortie': data.stLose,
+            'expedition': data.msCnt,
+            'successs_expedition': data.msSucc,
+            'winning_exercises': data.ptWin,
+            'defeatting_exercises': data.ptLose,
+            'veterans': +data.point,
+            'ranking': +data.rank,
+            'date': data.viewedDate
+        };
+        console.info(postData);
+        this.http.post(this.baseUrl + '/store', JSON.stringify(postData))
+            .toPromise()
+            .then(function (res) {
+            console.log(res.json());
+            var response = res.json();
+            if (response.result == -1) {
+                alert('その日付のデータは既に登録済みです。');
+            }
+            else {
+                _this.location.back();
+            }
+        })
+            .catch(this.handleError);
+    };
     MaterialTableService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
@@ -33,7 +75,8 @@ var MaterialTableService = (function () {
 }());
 MaterialTableService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http,
+        common_1.Location])
 ], MaterialTableService);
 exports.MaterialTableService = MaterialTableService;
 //# sourceMappingURL=material-table.service.js.map

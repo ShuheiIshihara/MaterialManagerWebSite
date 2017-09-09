@@ -1,46 +1,30 @@
-  <div class="create-top">
-    <!-- 資材入力 -->
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">資材入力</h3>
-      </div>
-      <div class="panel-body">
-        <input class="form-control" id="create-material" [(ngModel)]="material"/>
-      </div>
-    </div>
-    <!-- ランキング -->
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">ランキング</h3>
-      </div>
-      <div class="panel-body">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">順位</h3>
-          </div>
-          <div class="panel-body">
-            <input class="form-control" id="create-rank" [(ngModel)]="rank"/>
+      <div class="create-top">
+        <!-- 資材入力 -->
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">資材</span>
+          <input type="text" class="form-control" aria-describedby="basic-addon1" id="create-material" [(ngModel)]="material" (keyup)="setResource()">
+          <div>
+            <span>燃料：{{fuel}}</span>
+            <span>弾薬：{{ammunition}}</span>
+            <span>鋼材：{{steel}}</span>
+            <span>ボーキ：{{bauxite}}</span>
           </div>
         </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">戦果</h3>
-          </div>
-          <div class="panel-body">
-            <input class="form-control" id="create-point" [(ngModel)]="point"/>
-          </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon2">順位</span>
+          <input type="text" class="form-control" aria-describedby="basic-addon2" id="create-rank" [(ngModel)]="rank">
         </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">戦果</span>
+          <input type="text" class="form-control" aria-describedby="basic-addon3" id="create-point" [(ngModel)]="point">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon4">日付</span>
+          <input type="text" class="form-control" aria-describedby="basic-addon4" id="create-date" type="date" [(ngModel)]="viewedDate" value="viewedDate | date : 'yyyy-MM-dd'">
+        </div>
+
+        <button class="btn btn-default btn-lg" id="create-register" (click)="register()">登録</button>
       </div>
-    </div>
-    <!-- 日付 -->
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">日付</h3>
-      </div>
-      <div class="panel-body">
-        <input class="form-control" id="create-date" type="date" [(ngModel)]="date" value="date | date : 'yyyy-MM-dd'"/>
-      </div>
-    </div>
-    <!-- 登録ボタン -->
-    <button class="btn btn-default btn-lg" id="create-register" (click)="register()">登録</button>
-  </div>
