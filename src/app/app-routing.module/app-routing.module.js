@@ -10,10 +10,12 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var material_table_1 = require("../material-table/material-table");
 var material_create_1 = require("../material-create/material-create");
+var kanmusu_1 = require("../kanmusu/kanmusu");
 var routes = [
     { path: '', redirectTo: '/material', pathMatch: 'full' },
     { path: 'material', component: material_table_1.MaterialTableComponent },
     { path: 'material/create', component: material_create_1.MaterialCreateComponent },
+    { path: 'kanmusu', component: kanmusu_1.KanmusuComponent },
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

@@ -1,0 +1,35 @@
+<div>
+
+  <div>
+    <input type="text" [(ngModel)]="svdata" (keyup)="setResource()">
+    <span>
+      <span>駆逐艦のみ</span>
+      <input type="checkbox" [(ngModel)]="isSort">
+    </span>
+    <span>
+      <span>Cond ≦ 49</span>
+      <input type="checkbox" [(ngModel)]="isCond">
+    </span>
+  </div>
+
+
+  <div>
+    <div>全艦娘</div>
+    <div>
+      <table class="table table-striped table-hover">
+        <tr>
+          <th>No</th>
+          <th>名前</th>
+          <th>練度</th>
+          <th>Cond値</th>
+        </tr>
+        <tr *ngFor="let k of kanmusuList">
+          <td>{{k.no}}</td>
+          <td>{{k.name}}</td>
+          <td>{{k.level}}</td>
+          <td>{{k.cond}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

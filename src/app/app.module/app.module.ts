@@ -10,6 +10,8 @@ import { AppComponent }            from '../app.component/app.component';
 import { MaterialTableComponent }  from '../material-table/material-table';
 import { MaterialCreateComponent } from '../material-create/material-create';
 import { MaterialTableService }    from '../material-table.service/material-table.service';
+import { KanmusuComponent }        from '../kanmusu/kanmusu';
+import { KanmusuService }          from '../kanmusu.service/kanmusu.service';
 
 @NgModule({
   imports: [
@@ -21,7 +23,8 @@ import { MaterialTableService }    from '../material-table.service/material-tabl
   declarations: [
     AppComponent,
     MaterialTableComponent,
-    MaterialCreateComponent
+    MaterialCreateComponent,
+    KanmusuComponent
   ],
   providers: [ MaterialTableService ],
   bootstrap: [ AppComponent ]

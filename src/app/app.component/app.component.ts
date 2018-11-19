@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
 
-export class Hero {
-  id: number;
-  name: string;
-}
-
 @Component({
   selector: 'my-app',
   template: `
@@ -12,6 +7,7 @@ export class Hero {
       <div class="mTitle">{{title}}</div>
       <div class="mButton"><button class="btn btn-success" [routerLink]="['/material/create']">追加</button></div>
       <div class="mButton"><button class="btn btn-primary" [routerLink]="['/material']">一覧</button></div>
+      <div class="mButton"><button class="btn btn-warning" [routerLink]="['/kanmusu']">艦娘</button></div>
     </div>
 
     <router-outlet></router-outlet>

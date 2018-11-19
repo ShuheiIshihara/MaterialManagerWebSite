@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, Pipe, PipeTransform } from '@angular/core';
-import { ActivatedRoute, Params }   from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Location }                 from '@angular/common';
 
 import { MaterialTableService } from '../material-table.service/material-table.service';
