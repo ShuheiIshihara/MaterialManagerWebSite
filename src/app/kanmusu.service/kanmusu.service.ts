@@ -6,10 +6,10 @@ export class KanmusuService {
 
   kanmusuList: KanmusuData[] = [];
 
-  getKanmusuList(data: string, flag: boolean): KanmusuData[] {
+  getKanmusuList(data: string, isSort: boolean, isCond: boolean): KanmusuData[] {
 
     var jsonData = JSON.parse(data);
-    console.log(flag);
+    console.log(isSort);
 
     // 艦娘一覧
     var shipList = jsonData["api_data"].api_ship;
@@ -23,10 +23,12 @@ export class KanmusuService {
       kData.level = shipList[i].api_lv;
       kData.cond = shipList[i].api_cond;
 
-      if ((flag == true && shipList[i].api_bull == "20") || flag == false || flag == undefined) {
+      if ((isSort == true && shipList[i].api_bull == "20") || isSort == false || isSort == undefined) {
         this.kanmusuList[j] = kData;
         j += 1;
       }
+
+      
     }
 
     return this.kanmusuList;
@@ -310,6 +312,14 @@ export class KanmusuService {
     nameList["9"] = "吹雪";
     nameList["31"] = "望月";
     nameList["47"] = "涼風";
+    nameList["500"] = "神威改母";
+    nameList["606"] = "伊400改";
+    nameList["555"] = "瑞鳳改二";
+    nameList["687"] = "峯雲改";
+    nameList["689"] = "Johnston改";
+    nameList["586"] = "日進甲";
+    nameList["688"] = "早波改";
+    nameList["564"] = "風雲改二";
 
     var result = nameList[id];
 
