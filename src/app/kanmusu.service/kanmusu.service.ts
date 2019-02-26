@@ -1,20 +1,33 @@
 import { KanmusuData } from '../kanmusu-data/kanmusu-data';
+import { FleetList } from '../kanmusu-data/kanmusu-data';
 
 import 'rxjs/add/operator/toPromise';
 
 export class KanmusuService {
 
   kanmusuList: KanmusuData[] = [];
+  firstFleetList: KanmusuData[] = [];
 
-  getKanmusuList(data: string, isSort: boolean, isCond: boolean): KanmusuData[] {
+  getKanmusuList(data: string, isSort: boolean, isCond: boolean): FleetList {
 
     var jsonData = JSON.parse(data);
-    console.log(isSort);
+
+    // 出撃艦隊一覧
+    var fleetList = jsonData["api_data"].api_deck_port
+
+    // 第1艦隊
+    var firstFleet;
+    
+    for (var i = 0; i < fleetList.length; i++) {
+      if(fleetList[i].api_id == "1") {
+        firstFleet = fleetList[i].api_ship;
+        break;
+      }
+    }
 
     // 艦娘一覧
     var shipList = jsonData["api_data"].api_ship;
 
-    var j = 0;
     for (var i = 0; i < shipList.length; i++) {
 
       var kData = new KanmusuData();
@@ -24,14 +37,20 @@ export class KanmusuService {
       kData.cond = shipList[i].api_cond;
 
       if ((isSort == true && shipList[i].api_bull == "20") || isSort == false || isSort == undefined) {
-        this.kanmusuList[j] = kData;
-        j += 1;
+        this.kanmusuList.push(kData);
       }
 
-      
+      for (var h = 0; h < firstFleet.length; h++) {
+        if(shipList[i].api_id == firstFleet[h]){
+          this.firstFleetList.push(kData);
+        }
+      }
     }
+    var result = new FleetList();
+    result.allFleet = this.kanmusuList;
+    result.firstFleet = this.firstFleetList;
 
-    return this.kanmusuList;
+    return result;
   }
 
   getKanmusuName(id: string): string {

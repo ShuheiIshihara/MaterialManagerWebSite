@@ -1,17 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var kanmusu_data_1 = require("../kanmusu-data/kanmusu-data");
+var kanmusu_data_2 = require("../kanmusu-data/kanmusu-data");
 require("rxjs/add/operator/toPromise");
 var KanmusuService = (function () {
     function KanmusuService() {
         this.kanmusuList = [];
+        this.firstFleetList = [];
     }
     KanmusuService.prototype.getKanmusuList = function (data, isSort, isCond) {
         var jsonData = JSON.parse(data);
-        console.log(isSort);
+        // 出撃艦隊一覧
+        var fleetList = jsonData["api_data"].api_deck_port;
+        // 第1艦隊
+        var firstFleet;
+        for (var i = 0; i < fleetList.length; i++) {
+            if (fleetList[i].api_id == "1") {
+                firstFleet = fleetList[i].api_ship;
+                break;
+            }
+        }
         // 艦娘一覧
         var shipList = jsonData["api_data"].api_ship;
-        var j = 0;
         for (var i = 0; i < shipList.length; i++) {
             var kData = new kanmusu_data_1.KanmusuData();
             kData.no = shipList[i].api_id;
@@ -19,11 +29,18 @@ var KanmusuService = (function () {
             kData.level = shipList[i].api_lv;
             kData.cond = shipList[i].api_cond;
             if ((isSort == true && shipList[i].api_bull == "20") || isSort == false || isSort == undefined) {
-                this.kanmusuList[j] = kData;
-                j += 1;
+                this.kanmusuList.push(kData);
+            }
+            for (var h = 0; h < firstFleet.length; h++) {
+                if (shipList[i].api_id == firstFleet[h]) {
+                    this.firstFleetList.push(kData);
+                }
             }
         }
-        return this.kanmusuList;
+        var result = new kanmusu_data_2.FleetList();
+        result.allFleet = this.kanmusuList;
+        result.firstFleet = this.firstFleetList;
+        return result;
     };
     KanmusuService.prototype.getKanmusuName = function (id) {
         var nameList = {};

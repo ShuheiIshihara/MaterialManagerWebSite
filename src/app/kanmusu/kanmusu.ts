@@ -13,6 +13,7 @@ export class KanmusuComponent implements OnInit {
   isSort: boolean;
   isCond: boolean;
   kanmusuList: KanmusuData[] = [];
+  firstFleetList: KanmusuData[] = [];
 
   kService: KanmusuService = new KanmusuService();
 
@@ -26,8 +27,9 @@ export class KanmusuComponent implements OnInit {
 
       var jsonText = this.svdata.replace('svdata=','');
 
-      this.kanmusuList = this.kService.getKanmusuList(jsonText, this.isSort, this.isCond);
-      console.info(this.kanmusuList);
+      var fleetList = this.kService.getKanmusuList(jsonText, this.isSort, this.isCond);
+      this.kanmusuList = fleetList.allFleet;
+      this.firstFleetList = fleetList.firstFleet;
 
       this.svdata = "OK"
     } catch(err) {

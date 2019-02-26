@@ -11,6 +11,7 @@ var kanmusu_service_1 = require("../kanmusu.service/kanmusu.service");
 var KanmusuComponent = (function () {
     function KanmusuComponent() {
         this.kanmusuList = [];
+        this.firstFleetList = [];
         this.kService = new kanmusu_service_1.KanmusuService();
     }
     KanmusuComponent.prototype.ngOnInit = function () { };
@@ -20,8 +21,9 @@ var KanmusuComponent = (function () {
     KanmusuComponent.prototype.setResource = function () {
         try {
             var jsonText = this.svdata.replace('svdata=', '');
-            this.kanmusuList = this.kService.getKanmusuList(jsonText, this.isSort, this.isCond);
-            console.info(this.kanmusuList);
+            var fleetList = this.kService.getKanmusuList(jsonText, this.isSort, this.isCond);
+            this.kanmusuList = fleetList.allFleet;
+            this.firstFleetList = fleetList.firstFleet;
             this.svdata = "OK";
         }
         catch (err) {

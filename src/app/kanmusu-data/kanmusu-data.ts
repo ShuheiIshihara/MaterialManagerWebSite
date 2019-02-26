@@ -4,3 +4,11 @@ export class KanmusuData {
   level: String;
   cond: String;
 }
+
+/**
+ * 出力用クラス
+ */
+export class FleetList {
+  firstFleet: KanmusuData[];
+  allFleet: KanmusuData[];
+}

@@ -6,4 +6,13 @@ var KanmusuData = (function () {
     return KanmusuData;
 }());
 exports.KanmusuData = KanmusuData;
+/**
+ * 出力用クラス
+ */
+var FleetList = (function () {
+    function FleetList() {
+    }
+    return FleetList;
+}());
+exports.FleetList = FleetList;
 //# sourceMappingURL=kanmusu-data.js.map
