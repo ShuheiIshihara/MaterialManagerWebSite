@@ -11,16 +11,23 @@ import { MaterialCreateComponent } from '../material-create/material-create';
 export class MaterialTableService {
 
   // 接続URL
-  private baseUrl = 'http://localhost:8080/api/material';
+  private baseUrl = '';
 
   constructor(
     private http: Http,
     private location: Location
   ) { }
 
+  /**
+   * 接続先URLの取得
+   */
+  getBaseUrl(): string {
+    return 'http://' + location.hostname + ':8080/api/material';
+  }
+
   getMaterial(): Promise<Material[]>{
-    // console.log(this.http.get(this.baseUrl).toPromise())
-    return this.http.get(this.baseUrl)
+
+    return this.http.get(this.getBaseUrl())
                   .toPromise()
                   .then(response => response.json() as Material[])
                   .catch(this.handleError);
@@ -51,7 +58,7 @@ export class MaterialTableService {
       'date':          data.viewedDate
     };
     console.info(postData)
-    this.http.post(this.baseUrl+'/store', JSON.stringify(postData))
+    this.http.post(this.getBaseUrl() + '/store', JSON.stringify(postData))
               .toPromise()
               .then(
                 res => {

@@ -8,6 +8,13 @@ export class KanmusuService {
   kanmusuList: KanmusuData[] = [];
   firstFleetList: KanmusuData[] = [];
 
+  /**
+   * 艦娘のコンディション値加工
+   * 
+   * @param data 艦娘データ
+   * @param isSort ソートフラグ
+   * @param isCond コンディションフラグ
+   */
   getKanmusuList(data: string, isSort: boolean, isCond: boolean): FleetList {
 
     var jsonData = JSON.parse(data);
@@ -339,6 +346,26 @@ export class KanmusuService {
     nameList["586"] = "日進甲";
     nameList["688"] = "早波改";
     nameList["564"] = "風雲改二";
+    nameList["1496"] = "Colorado改";
+    nameList["491"] = "Commandantest";
+    nameList["692"] = "Fletcher改";
+    nameList["585"] = "石垣";
+    nameList["691"] = "G.Garibaldi改";
+    nameList["535"] = "Luigi Torelli";
+    nameList["584"] = "石垣";
+    nameList["532"] = "涼月";
+    nameList["381"] = "神鷹改";
+    nameList["112"] = "瑞鶴改";
+    nameList["288"] = "翔鶴改";
+    nameList["587"] = "海風改二";
+    nameList["573"] = "陸奥改二";
+    nameList["554"] = "日向改二";
+    nameList["591"] = "金剛改二";
+    nameList["594"] = "赤城改二";
+    nameList["520"] = "Janus";
+    nameList["589"] = "L.d.S.D.d.Abru";
+    nameList["614"] = "Grecale";
+    nameList["611"] = "御蔵";
 
     var result = nameList[id];
 

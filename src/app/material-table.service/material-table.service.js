@@ -18,11 +18,16 @@ var MaterialTableService = (function () {
         this.http = http;
         this.location = location;
         // 接続URL
-        this.baseUrl = 'http://localhost:8080/api/material';
+        this.baseUrl = '';
     }
+    /**
+     * 接続先URLの取得
+     */
+    MaterialTableService.prototype.getBaseUrl = function () {
+        return 'http://' + location.hostname + ':8080/api/material';
+    };
     MaterialTableService.prototype.getMaterial = function () {
-        // console.log(this.http.get(this.baseUrl).toPromise())
-        return this.http.get(this.baseUrl)
+        return this.http.get(this.getBaseUrl())
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
@@ -53,7 +58,7 @@ var MaterialTableService = (function () {
             'date': data.viewedDate
         };
         console.info(postData);
-        this.http.post(this.baseUrl + '/store', JSON.stringify(postData))
+        this.http.post(this.getBaseUrl() + '/store', JSON.stringify(postData))
             .toPromise()
             .then(function (res) {
             console.log(res.json());
