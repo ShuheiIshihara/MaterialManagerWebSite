@@ -397,7 +397,7 @@ export class KanmusuService {
     nameList["632"] = "有明";
     nameList["114"] = "阿武隈";
     nameList["697"] = "South Dakota改";
-    nameList[""] = "";
+    nameList["703"] = "有明改";
     nameList[""] = "";
     nameList[""] = "";
     nameList[""] = "";
