@@ -7,6 +7,7 @@ var KanmusuService = (function () {
     function KanmusuService() {
         this.kanmusuList = [];
         this.firstFleetList = [];
+        this.thirdFleetList = [];
     }
     /**
      * 艦娘のコンディション値加工
@@ -21,10 +22,14 @@ var KanmusuService = (function () {
         var fleetList = jsonData["api_data"].api_deck_port;
         // 第1艦隊
         var firstFleet;
+        // 第3艦隊(遊撃艦隊)
+        var thirdFleet;
         for (var i = 0; i < fleetList.length; i++) {
             if (fleetList[i].api_id == "1") {
                 firstFleet = fleetList[i].api_ship;
-                break;
+            }
+            if (fleetList[i].api_id == "3") {
+                thirdFleet = fleetList[i].api_ship;
             }
         }
         // 艦娘一覧
@@ -43,10 +48,16 @@ var KanmusuService = (function () {
                     this.firstFleetList.push(kData);
                 }
             }
+            for (var h = 0; h < thirdFleet.length; h++) {
+                if (shipList[i].api_id == thirdFleet[h]) {
+                    this.thirdFleetList.push(kData);
+                }
+            }
         }
         var result = new kanmusu_data_2.FleetList();
         result.allFleet = this.kanmusuList;
         result.firstFleet = this.firstFleetList;
+        result.thirdFleet = this.thirdFleetList;
         return result;
     };
     KanmusuService.prototype.getKanmusuName = function (id) {

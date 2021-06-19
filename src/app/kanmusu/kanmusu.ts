@@ -14,6 +14,7 @@ export class KanmusuComponent implements OnInit {
   isCond: boolean;
   kanmusuList: KanmusuData[] = [];
   firstFleetList: KanmusuData[] = [];
+  thirdFleetList: KanmusuData[] = [];
 
   kService: KanmusuService = new KanmusuService();
 
@@ -30,6 +31,7 @@ export class KanmusuComponent implements OnInit {
       var fleetList = this.kService.getKanmusuList(jsonText, this.isSort, this.isCond);
       this.kanmusuList = fleetList.allFleet;
       this.firstFleetList = fleetList.firstFleet;
+      this.thirdFleetList = fleetList.thirdFleet;
 
       this.svdata = "OK"
     } catch(err) {

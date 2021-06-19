@@ -7,6 +7,7 @@ export class KanmusuService {
 
   kanmusuList: KanmusuData[] = [];
   firstFleetList: KanmusuData[] = [];
+  thirdFleetList: KanmusuData[] = [];
 
   /**
    * 艦娘のコンディション値加工
@@ -24,11 +25,15 @@ export class KanmusuService {
 
     // 第1艦隊
     var firstFleet;
+    // 第3艦隊(遊撃艦隊)
+    var thirdFleet;
     
     for (var i = 0; i < fleetList.length; i++) {
       if(fleetList[i].api_id == "1") {
         firstFleet = fleetList[i].api_ship;
-        break;
+      }
+      if(fleetList[i].api_id == "3") {
+        thirdFleet = fleetList[i].api_ship;
       }
     }
 
@@ -52,10 +57,17 @@ export class KanmusuService {
           this.firstFleetList.push(kData);
         }
       }
+
+      for (var h = 0; h < thirdFleet.length; h++) {
+        if(shipList[i].api_id == thirdFleet[h]){
+          this.thirdFleetList.push(kData);
+        }
+      }
     }
     var result = new FleetList();
     result.allFleet = this.kanmusuList;
     result.firstFleet = this.firstFleetList;
+    result.thirdFleet = this.thirdFleetList;
 
     return result;
   }

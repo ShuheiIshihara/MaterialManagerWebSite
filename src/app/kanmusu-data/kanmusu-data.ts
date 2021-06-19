@@ -9,6 +9,7 @@ export class KanmusuData {
  * 出力用クラス
  */
 export class FleetList {
-  firstFleet: KanmusuData[];
   allFleet: KanmusuData[];
+  firstFleet: KanmusuData[];
+  thirdFleet: KanmusuData[];
 }

@@ -33,6 +33,26 @@
     </div>
   </div>
 
+  <div>
+    <div>第3艦隊(遊撃艦隊)</div>
+    <div>
+      <table class="table table-striped table-hover">
+        <tr>
+          <th>No</th>
+          <th>名前</th>
+          <th>練度</th>
+          <th>Cond値</th>
+        </tr>
+        <tr *ngFor="let f of thirdFleetList">
+          <td>{{f.no}}</td>
+          <td>{{f.name}}</td>
+          <td>{{f.level}}</td>
+          <td>{{f.cond}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
 <div>
   <div>全艦娘</div>
   <div>
