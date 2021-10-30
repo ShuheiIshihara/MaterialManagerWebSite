@@ -12,13 +12,18 @@ export class KanmusuComponent implements OnInit {
   svdata: string;
   isSort: boolean;
   isCond: boolean;
+  firstFleet: boolean;
+  thirdFleet: boolean;
   kanmusuList: KanmusuData[] = [];
   firstFleetList: KanmusuData[] = [];
   thirdFleetList: KanmusuData[] = [];
 
   kService: KanmusuService = new KanmusuService();
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.firstFleet = true;
+    this.thirdFleet = true;
+  }
 
   /**
    *  資材情報抽出
@@ -38,5 +43,12 @@ export class KanmusuComponent implements OnInit {
       console.error(err.message)
       this.svdata = "";
     }
+  }
+
+  /**
+   * 画面上の一覧リストのクリア
+   */
+  clearFleetList(): void {
+    console.log(this.firstFleetList);
   }
 }

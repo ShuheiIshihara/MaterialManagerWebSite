@@ -15,7 +15,10 @@ var KanmusuComponent = (function () {
         this.thirdFleetList = [];
         this.kService = new kanmusu_service_1.KanmusuService();
     }
-    KanmusuComponent.prototype.ngOnInit = function () { };
+    KanmusuComponent.prototype.ngOnInit = function () {
+        this.firstFleet = true;
+        this.thirdFleet = true;
+    };
     /**
      *  資材情報抽出
      */
@@ -32,6 +35,12 @@ var KanmusuComponent = (function () {
             console.error(err.message);
             this.svdata = "";
         }
+    };
+    /**
+     * 画面上の一覧リストのクリア
+     */
+    KanmusuComponent.prototype.clearFleetList = function () {
+        console.log(this.firstFleetList);
     };
     return KanmusuComponent;
 }());
