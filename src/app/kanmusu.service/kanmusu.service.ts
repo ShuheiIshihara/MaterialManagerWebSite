@@ -487,6 +487,15 @@ export class KanmusuService {
     nameList["657"] = "球磨改二丁";
     nameList["588"] = "山風改二";
     nameList["707"] = "Gambier Bay Mk.II";
+    nameList["905"] = "倉橋";
+    nameList["723"] = "Jean Bart";
+    nameList["935"] = "Massachusetts";
+    nameList["933"] = "Ranger改";
+    nameList["22"] = "五十鈴";
+    nameList["1"] = "睦月";
+    nameList["132"] = "秋雲";
+    nameList["453"] = "風雲";
+    nameList["561"] = "Samuel B.Roberts";
     nameList[""] = "";
     var result = nameList[id];
 
